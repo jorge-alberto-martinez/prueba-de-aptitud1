@@ -5,7 +5,7 @@
                type="text" 
                placeholder="Nombre Contacto" 
                id="nombre"
-               
+               value="<?= ($contacto['nombre']) ? $contacto['nombre'] : '' ?>"
           >
      </div>
      <div class="campo">
@@ -14,7 +14,7 @@
                type="text" 
                placeholder="Nombre Empresa" 
                id="empresa"
-               
+               value="<?= ($contacto['empresa']) ? $contacto['empresa'] : '' ?>"    
           >
      </div>
      <div class="campo">
@@ -23,7 +23,7 @@
                type="tel" 
                placeholder="Teléfono Contacto" 
                id="telefono"
-               
+               value="<?= ($contacto['telefono']) ? $contacto['telefono'] : '' ?>"
           >
      </div>
 </div>

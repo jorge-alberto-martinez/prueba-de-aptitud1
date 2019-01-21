@@ -14,7 +14,7 @@ function eventListeners() {
      }
 
      // buscador
-     inputBuscador.addEventListener('input', buscarContactos);
+     inputBuscador && (inputBuscador.addEventListener('input', buscarContactos));
      
      numeroContactos();
 }
@@ -256,5 +256,5 @@ function numeroContactos() {
      });
 
      // console.log(total);
-     contenedorNumero.textContent = total;
+     contenedorNumero && (contenedorNumero.textContent = total);
 }
