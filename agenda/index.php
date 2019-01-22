@@ -31,6 +31,9 @@
                               <th>Nombre</th>
                               <th>Empresa</th>
                               <th>Teléfono</th>
+                              <th>direccion</th>
+                              <th>edad</th>
+                              <th>cargo</th>
                               <th>Acciones</th>
                          </tr>
                     </thead>
@@ -46,6 +49,9 @@
                                         <td><?php echo $contacto['nombre']; ?></td>
                                         <td><?php echo $contacto['empresa']; ?></td>
                                         <td><?php echo $contacto['telefono']; ?></td>
+                                        <td><?php echo $contacto['direccion']; ?></td>
+                                        <td><?php echo $contacto['edad']; ?></td>
+                                        <td><?php echo $contacto['cargo']; ?></td>
                                         <td>
                                              <a class="btn-editar btn" href="editar.php?id=<?php echo $contacto['id']; ?>">
                                                   <i class="fas fa-pen-square"></i>

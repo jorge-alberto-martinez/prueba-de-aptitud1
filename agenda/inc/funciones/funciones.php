@@ -3,7 +3,7 @@
 function obtenerContactos() {
      include 'bd.php';
      try{
-          return $conn->query("SELECT id, nombre, empresa, telefono FROM contactos");
+          return $conn->query("SELECT id, nombre, empresa, telefono, direccion, edad, cargo FROM contactos");
      } catch(Exception $e) {
           echo "Error!!" . $e->getMessage() . "<br>";
           return false;
@@ -15,7 +15,7 @@ function obtenerContactos() {
 function obtenerContacto($id) {
      include 'bd.php';
      try{
-          return $conn->query("SELECT id, nombre, empresa, telefono FROM contactos WHERE id = $id");
+          return $conn->query("SELECT id, nombre, empresa, telefono, direccion, edad, cargo FROM contactos WHERE id = $id");
      } catch(Exception $e) {
           echo "Error!!" . $e->getMessage() . "<br>";
           return false;

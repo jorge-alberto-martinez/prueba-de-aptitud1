@@ -26,6 +26,36 @@
                value="<?= ($contacto['telefono']) ? $contacto['telefono'] : '' ?>"
           >
      </div>
+     <div class="campo">
+          <label for="direccion">Direccion:</label>
+          <input 
+               type="text" 
+               placeholder="Direccion Contacto" 
+               id="direccion"
+               value="<?= ($contacto['direccion']) ? $contacto['direccion'] : '' ?>"
+          >
+     </div>
+
+     <div class="campo">
+          <label for="edad">Edad:</label>
+          <input 
+               type="text" 
+               placeholder="edad Contacto" 
+               id="edad"
+               value="<?= ($contacto['edad']) ? $contacto['edad'] : '' ?>"
+          >
+     </div>
+
+          <div class="campo">
+          <label for="cargo">Cargo:</label>
+          <input 
+               type="text" 
+               placeholder="cargo Contacto" 
+               id="cargo"
+               value="<?= ($contacto['cargo']) ? $contacto['cargo'] : '' ?>"
+          >
+     </div>
+
 </div>
 <div class="campo enviar">
      <?php

@@ -22,24 +22,33 @@ function eventListeners() {
 function leerFormulario(e) {
      e.preventDefault();
 
-     // Leer los datos de los inputs
-     const nombre = document.querySelector('#nombre').value,
-           empresa = document.querySelector('#empresa').value,
-           telefono = document.querySelector('#telefono').value, 
-           accion = document.querySelector('#accion').value;
+     var valid = true;
+     var inputs = document.querySelectorAll(".campo input[type=text], .campo input[type=tel]");
+     var accion = document.querySelector('#accion').value;
 
-     if(nombre === '' || empresa === '' || telefono === '') {
-          // 2 parametros: texto y clase
+     for (var i = 0; i < inputs.length; i++) {
+          var input = inputs[i];
+          if (input.value === "") {
+               input.classList.add('error');
+               valid = false;
+          } else {
+               input.classList.remove('error');
+          }
+     }
+     
+     //fin de validacion de querySelectorAll 
+
+     if (!valid) {
           mostrarNotificacion('Todos los Campos son Obligatorios', 'error');
      } else {
           // Pasa la validación, crear llamado a Ajax
           const infoContacto = new FormData();
-          infoContacto.append('nombre', nombre);
-          infoContacto.append('empresa', empresa);
-          infoContacto.append('telefono', telefono);
-          infoContacto.append('accion', accion);
 
-          // console.log(...infoContacto);
+          for (var i = 0; i < inputs.length; i++) {
+               infoContacto.append(inputs[i].id, inputs[i].value);
+          }          
+
+          infoContacto.append('accion', accion);
 
           if(accion === 'crear'){
                // crearemos un nuevo contacto
@@ -50,8 +59,11 @@ function leerFormulario(e) {
                const idRegistro = document.querySelector('#id').value;
                infoContacto.append('id', idRegistro);
                actualizarRegistro(infoContacto);
-          }
+          } 
      }
+
+
+     
 }
 /** Inserta en la base de datos via Ajax */
 function insertarBD(datos) {
@@ -77,6 +89,9 @@ function insertarBD(datos) {
                     <td>${respuesta.datos.nombre}</td>
                     <td>${respuesta.datos.empresa}</td>
                     <td>${respuesta.datos.telefono}</td>
+                    <td>${respuesta.datos.direccion}</td>
+                    <td>${respuesta.datos.edad}</td>
+                    <td>${respuesta.datos.cargo}</td>
                `;
 
                // crear contenedor para los botones
@@ -210,6 +225,8 @@ function mostrarNotificacion(mensaje, clase) {
      const notificacion = document.createElement('div');
      notificacion.classList.add(clase, 'notificacion', 'sombra');
      notificacion.textContent = mensaje;
+
+     console.log('Muestra mensaje de error');
 
      // formulario
      formularioContactos.insertBefore(notificacion, document.querySelector('form legend'));

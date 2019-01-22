@@ -1,0 +1,11 @@
+1. Hacer una clase css .error con border: 1px solid #f00;
+2. Cuando haga click en añadir
+	2.1 si no están llenos los inputs agregar la clase error a cada uno
+	2.2 si todos están quitar clase error a cada uno
+
+
+
+	input.classlist.add("");
+	input.classList.remove("");
+
+	document.idForm.idInput.style.borderColor="#white"; cambiarle el border al input

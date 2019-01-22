@@ -105,7 +105,9 @@ legend span {
           justify-content: space-between;
      }
      .campo {
-          flex: 0 0 calc(33.3% - 1rem );
+          flex: 0 0 calc(17.5% - 1rem );**/
+          display: auto;
+          justify-content: space-around;
      }
 }
 .campo {
@@ -117,12 +119,17 @@ legend span {
 .campo input[type="text"],
 .campo input[type="tel"] {
      width:100%;
-     border:none;
+     border: 1px solid transparent; /**se modificara el border de los imput**/
      padding: .5rem;
      height: 3rem;
      margin-top: .5rem;
-     font-size: 1.2rem;
+     font-size: 1rem;
 }
+
+.campo input.error {
+     border: 1px solid #f00;
+}
+
 .enviar {
      display: flex;
      justify-content: flex-end;
@@ -222,3 +229,4 @@ legend span {
      background-color: rgb(238, 148, 166);
      color: rgb(163, 0, 33);
 }
+
